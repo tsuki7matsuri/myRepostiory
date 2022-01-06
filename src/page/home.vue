@@ -24,6 +24,7 @@
       'v-productTable': productTable,
     },
     mounted() {
+      this.$router.push('/home/user')
     }
   }
 </script>

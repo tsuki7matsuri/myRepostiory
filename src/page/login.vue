@@ -108,6 +108,7 @@
             axios.post('/springboot/loginCheck',formData)
               .then(res => {
                 if (res.data.code == 200) {
+                  this.$store.dispatch('login', user);
                   //this.userLogin(res.data);
                   //this.$message.success(`${res.data.message}`)
                   // 登录成功 跳转至首页
