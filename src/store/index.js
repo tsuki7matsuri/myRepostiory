@@ -10,6 +10,7 @@ Vue.use(Vuex);
 const actions = {
   //context value
   login(context, value) {
+    console.log('-----------------------------'+value.username)
     context.commit('Login', value);
   }
 };
