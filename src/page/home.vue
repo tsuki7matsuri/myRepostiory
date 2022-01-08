@@ -25,7 +25,7 @@
     },
     mounted() {
       this.$router.push('/home/user')
-      console.log(this.$store.state.user.username);
+      console.log(this.$store.state.user);
     }
   }
 </script>
