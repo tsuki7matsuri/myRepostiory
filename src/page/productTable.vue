@@ -53,7 +53,15 @@
         label="产品图片"
         width="380">
         <template slot-scope="scope">
-          <el-image style="width: 100px; height: 100px" :src=scope.row.productDescription />
+          <el-popover
+            placement="top-start"
+            title="标题"
+            width="200"
+            trigger="hover">
+            <el-image  style="width: 500px; height: 500px" :src=scope.row.productDescription />
+            <el-image  slot="reference" style="width: 100px; height: 100px" :src=scope.row.productDescription />
+          </el-popover>
+
         </template>
       </el-table-column>
       <el-table-column label="操作">
@@ -236,8 +244,10 @@
       },
       create() {
         window.isMouted = false;
-      }
-      ,
+      },
+      picHover(src) {
+
+      },
       getUserData(condition) {
         const qs = require('qs');
         axios.post('/springboot/getProductList', condition

@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-menu/>
-    <router-view></router-view>
+    <router-view/>
   </div>
 </template>
 
@@ -25,7 +25,7 @@
     },
     mounted() {
       this.$router.push('/home/user')
-      console.log(this.$store.state.user);
+      console.log('=======================' + this.$store.state.user.username);
     }
   }
 </script>

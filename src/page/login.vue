@@ -119,7 +119,7 @@
                     }
                   })
                 }else{
-                  this.$message.error(`${res.data.msg}` + ',用户名或密码错误');
+                  this.$message.error(`${res.data.msg}`);
                   return false;
                 }
               })

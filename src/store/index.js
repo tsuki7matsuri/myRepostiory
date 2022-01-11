@@ -18,15 +18,24 @@ const actions = {
 //用于组件中的操作数据
 const mutations = {
   // actions中一般小写 mutations中一般大写
-  Login(value) {
-    state.user = value;
+  Login(state, value) {
+    /*function copyObj(obj){
+      var newobj = {};
+      for ( var key in obj) {
+        newobj[key ] = obj[key ];
+      }
+      return newobj;
+    }
+    state.user = copyObj(value);*/
+    state.user = value
     console.log('-----------------------------'+state.user.username)
   }
 };
 
 //用于存储数据
 const state = {
-  user: {}
+  user: {},
+  t:''
 };
 
 //创建并暴露store

@@ -58,7 +58,7 @@
             //type: 'rtmp/flv', // 播放rtmp视频
             //src: this.cafe // 你直播视频的路径
             type: 'video/mp4', // 播放mp4视频
-            src: require('@/assets/cafe.mp4')
+            src: require('@/assets/snow fairy story.mp4')
           }],
           poster: require('@/assets/back_hutao.png'), //你的封面地址
           width: document.documentElement.clientWidth,
