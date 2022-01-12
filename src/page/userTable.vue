@@ -1,16 +1,32 @@
 <template>
-  <div id="table">
-    <div style="margin-top: 20px">
+  <div id="table" style="width: 100%">
+    <div style="margin-top: 10px">
       <el-button @click="addUser">新建</el-button>
-      <el-input
-        style="width: 30%"
-        placeholder="请输入搜索关键字"
-        v-model="searchText"
-        clearable>
+      <el-dropdown trigger="click">
+      <span class="el-dropdown-link">
+        <i class="el-icon-arrow-down el-icon--left"></i>
+        <el-input
+          style="width: 300px"
+          placeholder="请输入搜索关键字"
+          v-model="searchText"
+          v-on:click="focusSearch"
+          class="el-dropdown-link"
+          clearable>
       </el-input>
-      <el-button type="primary" icon="el-icon-search" @click="search">搜索</el-button>
-    </div>
 
+      </span>
+        <el-dropdown-menu style="width: 300px" slot="dropdown">
+          <el-dropdown-item v-for="item in tableData.list" :key="item.username">{{item.username}}</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+
+      <el-button type="primary" icon="el-icon-search" @click="search">搜索</el-button>
+
+        <!--<span class="el-dropdown-link">
+          <i class="el-icon-arrow-down el-icon&#45;&#45;right"></i>
+        </span>-->
+
+    </div>
     <el-table
       :data="tableData.list"
       style="width: 100%">
@@ -88,6 +104,16 @@
   export default {
     data() {
       return {
+        showCustomer: false,
+        showloading: false,
+        customerList: [
+          {
+            'username': 123
+          },
+          {
+            'username': 222
+          }
+        ],
         tableData: {},
         searchText: '',
         key: 1,
@@ -239,8 +265,16 @@
       },
       create() {
         window.isMouted = false;
-      }
-      ,
+      },
+      focusSearch() {
+        console.log("xxx")
+        /*this.customerList = [{
+          'username': 123
+        }];*/
+        this.showCustomer = true;
+      },
+      chooseCustomer(value) {
+      },
       getUserData(condition) {
         const qs = require('qs');
         axios.post('/springboot/getForm',
@@ -262,4 +296,15 @@
       window.isMounted = true;
     }
   }
-</script>
+</script>、
+
+<style scoped>
+  .el-dropdown-link {
+    cursor: pointer;
+    color: #409EFF;
+  }
+
+  .el-icon-arrow-down {
+    font-size: 12px;
+  }
+</style>
