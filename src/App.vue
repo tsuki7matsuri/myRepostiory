@@ -1,28 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <TopContainer />
+    <BHeader />
+    <BContent />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BHeader  from '@/components/header/BHeader';
+import TopContainer from '@/components/header/TopContainer';
+import BContent from "@/components/contentTop/BContent";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    BHeader,
+    TopContainer,
+    BContent,
   }
 }
 </script>
 
 <style>
-#app {
+/*#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
+}*/
 </style>
